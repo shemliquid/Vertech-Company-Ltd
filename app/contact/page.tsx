@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { FormEvent } from "react";
 import Link from "next/link";
 import Button from "../components/Button";
@@ -28,6 +28,13 @@ export default function Contact() {
   const [error, setError] = useState<string | null>(null);
   const [honeypot, setHoneypot] = useState("");
   const [lastSubmitTime, setLastSubmitTime] = useState<number>(0);
+
+  // Scroll to top when thank you message is shown
+  useEffect(() => {
+    if (submitted) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [submitted]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -96,8 +103,6 @@ export default function Contact() {
       await submitContactForm(formData);
       setSubmittedName(formData.name);
       setSubmitted(true);
-      // Scroll to top to show thank you message
-      window.scrollTo({ top: 0, behavior: "smooth" });
       setFormData({
         name: "",
         email: "",
