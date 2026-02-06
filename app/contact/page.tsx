@@ -26,6 +26,8 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState("");
+  const [lastSubmitTime, setLastSubmitTime] = useState<number>(0);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -69,11 +71,27 @@ export default function Contact() {
     e.preventDefault();
     setError(null);
 
+    // Honeypot check - if filled, it's likely a bot
+    if (honeypot) {
+      console.log("Bot detected via honeypot");
+      return;
+    }
+
+    // Rate limiting - prevent submissions within 5 seconds
+    const now = Date.now();
+    const timeSinceLastSubmit = now - lastSubmitTime;
+    if (timeSinceLastSubmit < 5000 && lastSubmitTime > 0) {
+      setError("Please wait a few seconds before submitting again.");
+      return;
+    }
+
     if (!validateForm()) {
       return;
     }
 
     setLoading(true);
+    setLastSubmitTime(now);
+
     try {
       await submitContactForm(formData);
       setSubmittedName(formData.name);
@@ -754,6 +772,27 @@ export default function Contact() {
                         placeholder="Tell us about your project, goals, and timeline..."
                         className="input resize-y min-h-[120px]"
                         required
+                      />
+                    </div>
+
+                    {/* Honeypot field - hidden from real users */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: "-9999px",
+                        opacity: 0,
+                      }}
+                      aria-hidden="true"
+                    >
+                      <label htmlFor="website">Website (leave blank)</label>
+                      <input
+                        type="text"
+                        id="website"
+                        name="website"
+                        value={honeypot}
+                        onChange={(e) => setHoneypot(e.target.value)}
+                        tabIndex={-1}
+                        autoComplete="off"
                       />
                     </div>
 

@@ -108,6 +108,7 @@ export default function ClockWidget() {
       height="100%"
       viewBox="0 0 200 200"
       style={{ overflow: "visible" }}
+      suppressHydrationWarning={true}
     >
       {/* Ring borders */}
       {RING_BORDERS.map((r) => (
