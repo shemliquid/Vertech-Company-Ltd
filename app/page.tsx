@@ -200,13 +200,13 @@ export default function Homepage() {
         <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-accent/5 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float delay-200" />
 
-        <div className="container-custom relative z-10 pt-20">
+        <div className="container-custom relative z-10 pt-4 lg:pt-20">
           {/* Mobile: Branding Left, Clock Right (hidden on desktop) */}
           <div className="lg:hidden mb-6 animate-fade-in-up">
             <div className="flex flex-row items-center justify-between gap-4">
               {/* Left: Company Branding */}
               <div className="flex items-center pl-2">
-                <Logo variant="light" showText={true} className="h-28" />
+                <Logo variant="light" showText={true} className="h-40" />
               </div>
 
               {/* Right: Clock Widget */}

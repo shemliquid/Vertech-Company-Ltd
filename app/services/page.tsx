@@ -102,7 +102,7 @@ export default function Services() {
   return (
     <div className="min-h-screen bg-navy-50">
       {/* Hero Section */}
-      <section className="relative bg-navy-900 pt-32 pb-20 overflow-hidden">
+      <section className="relative bg-navy-900 pt-4 lg:pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-mesh" />
         <div className="absolute inset-0 bg-grid-pattern" />
 
@@ -112,7 +112,7 @@ export default function Services() {
             <div className="flex flex-row items-center justify-between gap-4">
               {/* Left: Company Branding */}
               <div className="flex items-center pl-2">
-                <Logo variant="light" showText={true} className="h-28" />
+                <Logo variant="light" showText={true} className="h-40" />
               </div>
 
               {/* Right: Clock Widget */}
