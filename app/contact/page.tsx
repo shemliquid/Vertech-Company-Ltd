@@ -96,6 +96,8 @@ export default function Contact() {
       await submitContactForm(formData);
       setSubmittedName(formData.name);
       setSubmitted(true);
+      // Scroll to top to show thank you message
+      window.scrollTo({ top: 0, behavior: "smooth" });
       setFormData({
         name: "",
         email: "",
