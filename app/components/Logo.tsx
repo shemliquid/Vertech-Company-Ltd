@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface LogoProps {
   className?: string;
@@ -30,11 +31,14 @@ export default function Logo({
         className={`inline-flex items-center ${className}`}
         onClick={onClick}
       >
-        <img
+        <Image
           src={src}
           alt="Vertex Tech Company"
+          width={180}
+          height={80}
           className="h-20 w-auto object-contain"
           draggable={false}
+          priority
         />
       </Link>
     );
@@ -52,19 +56,21 @@ export default function Logo({
           width: 40,
           height: 40,
           overflow: "hidden",
+          position: "relative",
         }}
       >
-        <img
+        <Image
           src={src}
           alt="Vertex Tech Company"
+          width={72}
+          height={72}
           draggable={false}
           style={{
-            width: 72,
-            height: 72,
             objectFit: "cover",
             objectPosition: "center top",
             marginLeft: -16,
           }}
+          priority
         />
       </div>
     </Link>

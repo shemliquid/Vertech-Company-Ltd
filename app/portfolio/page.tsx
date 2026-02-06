@@ -5,7 +5,6 @@ import Button from "../components/Button";
 import Card from "../components/Card";
 import ClockWidget from "../components/ClockWidget";
 import { projects } from "../data/projects";
-import type { Project } from "../data/projects";
 
 export default function Portfolio() {
   return (

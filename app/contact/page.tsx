@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import type { FormEvent } from "react";
 import Link from "next/link";
 import Button from "../components/Button";
@@ -9,7 +9,6 @@ import ClockWidget from "../components/ClockWidget";
 import { submitContactForm } from "../utils/api";
 import type { ContactFormData } from "../utils/api";
 import { services } from "../data/services";
-import type { Service } from "../data/services";
 
 export default function Contact() {
   const [formData, setFormData] = useState<ContactFormData>({

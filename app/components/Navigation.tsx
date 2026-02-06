@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
 interface NavItem {
@@ -484,15 +485,18 @@ export default function Navigation() {
             }}
             onMouseLeave={() => setCentreHovered(false)}
           >
-            <img
+            <Image
               src="/logo-dark.png"
               alt="Vertex Tech"
+              width={innerR * 2 - 10}
+              height={innerR * 2 - 10}
               draggable={false}
               style={{
                 maxWidth: innerR * 2 - 10,
                 maxHeight: innerR * 2 - 10,
                 objectFit: "contain",
               }}
+              priority
             />
           </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import ClockWidget from "../components/ClockWidget";
@@ -408,9 +409,11 @@ export default function About() {
                 style={{ height: 260 }}
               >
                 {/* Placeholder: replace src with actual group photo path */}
-                <img
+                <Image
                   src="/team/group-photo.jpg"
                   alt="Vertex Tech team"
+                  width={1200}
+                  height={260}
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = "none";
@@ -516,9 +519,11 @@ export default function About() {
                     className="relative w-full overflow-hidden"
                     style={{ height: 180 }}
                   >
-                    <img
+                    <Image
                       src={member.image}
                       alt={member.name}
+                      width={400}
+                      height={180}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = "none";

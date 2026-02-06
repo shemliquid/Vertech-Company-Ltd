@@ -6,7 +6,6 @@ import Button from "../components/Button";
 import Card from "../components/Card";
 import ClockWidget from "../components/ClockWidget";
 import { services } from "../data/services";
-import type { Service } from "../data/services";
 
 // Icons for services
 const serviceIcons: Record<string, React.ReactNode> = {
