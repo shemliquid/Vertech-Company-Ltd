@@ -112,7 +112,7 @@ export default function Services() {
             <div className="flex flex-row items-center justify-between gap-4">
               {/* Left: Company Branding */}
               <div className="flex items-center pl-2">
-                <Logo variant="light" showText={true} className="h-40" />
+                <Logo variant="light" showText={true} className="w-32 h-32" />
               </div>
 
               {/* Right: Clock Widget */}
