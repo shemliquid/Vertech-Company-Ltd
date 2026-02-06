@@ -4,6 +4,7 @@ import Link from "next/link";
 import Button from "./components/Button";
 import Card from "./components/Card";
 import ClockWidget from "./components/ClockWidget";
+import Logo from "./components/Logo";
 import { services } from "./data/services";
 import { projects } from "./data/projects";
 
@@ -200,6 +201,21 @@ export default function Homepage() {
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float delay-200" />
 
         <div className="container-custom relative z-10 pt-20">
+          {/* Mobile: Branding Left, Clock Right (hidden on desktop) */}
+          <div className="lg:hidden mb-6 animate-fade-in-up">
+            <div className="flex flex-row items-center justify-between gap-4">
+              {/* Left: Company Branding */}
+              <div className="flex items-center pl-2">
+                <Logo variant="light" showText={true} className="h-28" />
+              </div>
+
+              {/* Right: Clock Widget */}
+              <div className="w-32 h-32 flex-shrink-0">
+                <ClockWidget />
+              </div>
+            </div>
+          </div>
+
           <div className="flex flex-col lg:flex-row lg:items-center gap-8">
             {/* Left — headline + CTA */}
             <div className="w-full lg:w-[80%]">
