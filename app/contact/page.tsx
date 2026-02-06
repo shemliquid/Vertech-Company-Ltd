@@ -6,6 +6,7 @@ import Link from "next/link";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import ClockWidget from "../components/ClockWidget";
+import Logo from "../components/Logo";
 import { submitContactForm } from "../utils/api";
 import type { ContactFormData } from "../utils/api";
 import { services } from "../data/services";
@@ -425,6 +426,21 @@ export default function Contact() {
         <div className="absolute inset-0 bg-grid-pattern" />
 
         <div className="container-custom relative z-10">
+          {/* Mobile: Branding Left, Clock Right (hidden on desktop) */}
+          <div className="lg:hidden mb-6 animate-fade-in-up">
+            <div className="flex flex-row items-center justify-between gap-4">
+              {/* Left: Company Branding */}
+              <div className="flex items-center pl-2">
+                <Logo variant="light" showText={true} className="h-28" />
+              </div>
+
+              {/* Right: Clock Widget */}
+              <div className="w-32 h-32 flex-shrink-0">
+                <ClockWidget />
+              </div>
+            </div>
+          </div>
+
           <div className="flex flex-col lg:flex-row lg:items-center gap-8">
             <div className="w-full lg:w-[80%] animate-fade-in-up">
               <span className="section-label text-accent-light mb-4">
