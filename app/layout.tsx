@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "systems integration",
   ],
   icons: {
-    icon: "/favicon.svg",
+    icon: "/vertex.png",
   },
 };
 
